@@ -354,6 +354,10 @@ const getWatchHistory = asyncHandler(async(req, res) => {
     return res.status(200).json(new ApiResponse(200, user[0].watchHistory, "Watch history fecthed succesfully"))
 })
 
+const healthCheck = asyncHandler(async(req, res) => {
+    return res.status(200).json(new ApiResponse(200, [], "Health check successfull"))
+})
+
 export { 
     registerUser, 
     loginUser,
@@ -364,5 +368,6 @@ export {
     updateAccountDetails,
     updateUserAvatar,
     getUserChannelProfile,
-    getWatchHistory
+    getWatchHistory,
+    healthCheck
 }

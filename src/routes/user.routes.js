@@ -9,7 +9,8 @@ import {
     refreshAccessToken, 
     registerUser, 
     updateAccountDetails, 
-    updateUserAvatar
+    updateUserAvatar,
+    healthCheck
  } from "../controllers/user.controller.js"
 import { upload } from "../middlewares/multer.middleware.js"
 import { verifyJWT } from "../middlewares/auth.middleware.js"
@@ -41,5 +42,7 @@ router.route("/update-avatar").patch(verifyJWT, upload.single("avatar"), updateU
 router.route("/c/:username").get(verifyJWT, getUserChannelProfile)
 
 router.route("/history").get(verifyJWT, getWatchHistory)
+
+router.route("/health-check").get(healthCheck)
 
 export default router
